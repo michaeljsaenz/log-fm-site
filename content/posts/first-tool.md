@@ -1,0 +1,17 @@
+---
+title: "Building an Edge Runner"
+date: '2026-06-17T00:27:32-05:00'
+draft: false
+tags: ["golang", "infrastructure"]
+---
+
+An ultra-lightweight execution runner designed for cluster management.
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Deploying to edge...")
+}

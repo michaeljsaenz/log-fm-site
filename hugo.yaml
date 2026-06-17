@@ -1,0 +1,30 @@
+baseURL: "https://log.fm/"
+locale: "en-us"
+title: "Dev Log"
+theme: ["PaperMod"]
+
+# Optimized asset compilation
+minify:
+  disableXMLMin: false
+  minifyOutput: true
+
+params:
+  defaultTheme: auto            # Switches dark/light mode automatically via OS
+  showCodeCopyButtons: true     # Code copy button utility on markdown code blocks
+
+  homeInfoParams:
+    title: "Michael"
+    content: "Platform engineering logs, tool internals, and active projects."
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/michaeljsaenz"
+
+menu:
+  main:
+    - name: Posts
+      url: /posts/
+      weight: 10
+    - name: Projects
+      url: /projects/
+      weight: 20
