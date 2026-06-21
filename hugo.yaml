@@ -1,7 +1,7 @@
 baseURL: "https://log.fm/"
 locale: "en-us"
 title: "Dev Log"
-theme: ["PaperMod"]
+theme: "PaperMod"
 
 # Optimized asset compilation
 minify:
