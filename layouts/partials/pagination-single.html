@@ -1,0 +1,45 @@
+{{ $section := .Section }}
+{{ $pages := where .Site.RegularPages "Section" $section }}
+{{ $pages = sort $pages "File.BaseFileName" "asc" }}
+
+{{ $currentIndex := -1 }}
+{{ $currentPageFile := .File.BaseFileName }}
+
+{{ range $index, $page := $pages }}
+    {{ if eq $page.File.BaseFileName $currentPageFile }}
+        {{ $currentIndex = $index }}
+    {{ end }}
+{{ end }}
+
+{{ if and (not .Site.Params.DisableReadOtherPosts) (ge $currentIndex 0) (gt (len $pages) 1) }}
+    <div class="pagination">
+        {{ if .Site.Params.ReadOtherPosts }}
+        <div class="pagination__title">
+            <span class="pagination__title-h">{{ .Site.Params.ReadOtherPosts }}</span>
+            <hr />
+        </div>
+        {{ end }}
+
+        <div class="pagination__buttons">
+            {{ if gt $currentIndex 0 }}
+                {{ $prev := index $pages (sub $currentIndex 1) }}
+                <span class="button previous">
+                    <a href="{{ $prev.Permalink }}">
+                        <span class="button__icon">←</span>
+                        <span class="button__text">{{ $prev.Title }}</span>
+                    </a>
+                </span>
+            {{ end }}
+
+            {{ if lt $currentIndex (sub (len $pages) 1) }}
+                {{ $next := index $pages (add $currentIndex 1) }}
+                <span class="button next">
+                    <a href="{{ $next.Permalink }}">
+                        <span class="button__text">{{ $next.Title }}</span>
+                        <span class="button__icon">→</span>
+                    </a>
+                </span>
+            {{ end }}
+        </div>
+    </div>
+{{ end }}

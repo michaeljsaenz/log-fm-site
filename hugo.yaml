@@ -1,7 +1,7 @@
 baseURL: "https://log.fm/"
 locale: "en-us"
-title: "Dev Log"
-theme: "PaperMod"
+title: "log.fm"
+theme: "hello-friend-ng"
 
 # Optimized asset compilation
 minify:
@@ -9,22 +9,23 @@ minify:
   minifyOutput: true
 
 params:
-  defaultTheme: auto            # Switches dark/light mode automatically via OS
-  showCodeCopyButtons: true     # Code copy button utility on markdown code blocks
-
-  homeInfoParams:
-    title: "Michael"
-    content: "Platform engineering logs, tool internals, and active projects."
-
+  showCodeCopyButtons: true
+  enableThemeToggle: false
+  enableSharingButtons: false
+  enableReadingTime: true
+  homeSubtitle: "Broadcasting from the engineering notebook."
+  description: "Technical notes, experiments, and engineering posts."
+  images:
+    - ""
   socialIcons:
     - name: github
       url: "https://github.com/michaeljsaenz"
 
-menu:
-  main:
-    - name: Posts
-      url: /posts/
-      weight: 10
-    - name: Projects
-      url: /projects/
-      weight: 20
+
+  logo:
+    logoCursorColor: "#88E7B8" #"#39FF14"
+    logoText: "log.fm"
+      
+  footer:
+    rss: false
+    copyright: false

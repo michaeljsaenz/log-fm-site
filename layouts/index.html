@@ -1,0 +1,81 @@
+{{ define "main" }}
+  <div class="content">
+    <main class="posts">
+      <div style="width: fit-content; margin: 0 auto; text-align: left; padding: 2rem 1rem;">
+
+        <div style="font-size: 0.95rem; color: var(--secondary); margin-bottom: 2rem; font-family: monospace; opacity: 0.8;">
+          {{ with site.Params.homeSubtitle }}
+            // {{ . }}
+          {{ end }}
+        </div>
+
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          {{ $posts := sort (where site.RegularPages "Section" "posts") "File.BaseFileName" "asc" }}
+          
+          {{ range ($posts | first 5) }}
+            <li class="log-row" style="padding: 0.25rem 0; font-family: monospace; font-size: 0.95rem;">
+              
+              <a href="{{ .Permalink }}" style="display: grid; grid-template-columns: 10ch 1fr; gap: 2rem; align-items: baseline;">
+                
+                <span class="log-filename" style="opacity: 0.85;">
+                  {{ .File.BaseFileName }}
+                </span>
+                
+                <span class="log-title">
+                  {{ .Title }}
+                </span>
+
+              </a>
+
+            </li>
+          {{ end }}
+        </ul>
+
+        {{ if gt (len $posts) 5 }}
+          <div style="margin-top: 2rem; font-family: monospace; font-size: 0.95rem;">
+            <a href="/posts/" class="archive-link">
+              > view all
+            </a>
+          </div>
+        {{ end }}
+
+      </div>
+
+      {{ partial "pagination-list.html" . }}
+    </main>
+  </div>
+
+  <style>
+    /* Base link styling */
+    .log-row a {
+      text-decoration: none;
+      color: inherit;
+      transition: opacity 120ms linear, color 120ms linear;
+    }
+    
+    /* Set the initial secondary color for the filename */
+    .log-filename {
+      color: var(--secondary);
+      transition: color 120ms linear;
+    }
+
+    /* Apply the hover accent color to both the anchor text and the filename span */
+    .log-row:hover a,
+    .log-row:hover .log-filename {
+      opacity: 0.9;
+      color: #88e7b8;
+    }
+
+    .archive-link {
+      color: var(--secondary);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 120ms linear, color 120ms linear;
+    }
+    
+    .archive-link:hover {
+      opacity: 1;
+      color: #88e7b8;
+    }
+  </style>
+{{ end }}

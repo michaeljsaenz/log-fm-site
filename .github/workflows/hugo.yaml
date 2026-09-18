@@ -24,7 +24,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
         with:
-          submodules: true  # Fetches the theme code
+          submodules: false
           fetch-depth: 0
 
       - name: Setup Pages
