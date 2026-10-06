@@ -9,6 +9,8 @@ minify:
   minifyOutput: true
 
 params:
+  customCSS:
+    - "/css/inline-code.css"
   showCodeCopyButtons: true
   enableThemeToggle: false
   enableSharingButtons: false

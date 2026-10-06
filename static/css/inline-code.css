@@ -1,0 +1,23 @@
+.post-content :not(pre) > code {
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-feature-settings: normal;
+  padding: 1px 6px;
+  margin: 0 2px;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  background: #eaeaea;
+}
+
+@media (prefers-color-scheme: dark) {
+  .post-content :not(pre) > code {
+    background: #3b3d42;
+  }
+}
+
+[data-theme="dark"] .post-content :not(pre) > code {
+  background: #3b3d42;
+}
+
+[data-theme="light"] .post-content :not(pre) > code {
+  background: #eaeaea;
+}
