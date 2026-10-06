@@ -16,7 +16,7 @@ params:
   homeSubtitle: "Broadcasting from the engineering notebook."
   description: "Technical notes, experiments, and engineering posts."
   images:
-    - ""
+    - "static/images"
   socialIcons:
     - name: github
       url: "https://github.com/michaeljsaenz"
